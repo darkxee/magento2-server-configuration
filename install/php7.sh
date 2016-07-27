@@ -1,21 +1,18 @@
 #!/usr/bin/env bash
 
-apt-get install \
-    php-fpm \
-    php-mysql \
-    php-mcrypt \
-    php-curl \
-    php-cli \
-    php-gd \
-    php7.0-xsl \
-    php-json \
-    php-intl \
-    php-pear \
-    php-dev \
-    php-common \
-    php-soap \
-    php-mbstring \
-    php-zip \
-    --yes
+sudo apt-get install python-software-properties
+sudo LC_ALL=C.UTF-8 add-apt-repository ppa:ondrej/php
+sudo apt-get update
 
-service php7.0-fpm restart
+sudo apt-get remove php5-common -y
+sudo apt-get purge php5-common -y
+sudo apt-get install php7.0 php7.0-fpm php7.0-mysql -y
+sudo apt-get --purge autoremove -y
+sudo service php7.0-fpm restart
+
+
+
+
+
+
+
